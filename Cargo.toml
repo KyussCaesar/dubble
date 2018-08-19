@@ -1,0 +1,6 @@
+[package]
+name = "double-buffered"
+version = "0.1.0"
+authors = ["Antony Southworth <southworthy@gmail.com>"]
+
+[dependencies]
