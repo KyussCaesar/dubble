@@ -1,0 +1,33 @@
+During the update of the read buffer, nothing else will be able to read from
+it.
+
+BUT: The write buffer is owned by the thread that owns the DoubleBuffer. Therefore,
+no-one but the owner can write to the write buffer. When the owner is occupied with
+updating the read buffer, the write buffer will not be written to, because only
+the owner can write to the write buffer, and the owner is busy copying the write
+buffer into the read buffer. Therefore, it would be safe for those who are not the
+owner of the write buffer to read the write buffer during the update.
+
+Once the update is complete, the contents of both buffers will be the same.
+
+Therefore, an agent would still be able to read the buffer during an update, by
+reading the write buffer.
+
+This breaks down if the "special" read is not complete before the update process
+completes.
+
+The solution here might be that the owner would have to wait until the read is
+complete before performing any new writes.
+
+---
+
+Consider Occam's Razor, and simply use a Mutex
+
+I don't like that a mutex seems like too much. It seems like "most" of the time,
+there would be no issue.
+
+---
+
+You may want to consider ST and MT variants; the "naive" version works just fine
+for the single-threaded case.
+
