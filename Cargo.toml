@@ -3,4 +3,14 @@ name = "dubble"
 version = "0.1.0"
 authors = ["Antony Southworth <southworthy@gmail.com>"]
 
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/KyussCaesar/dubble"
+homepage = "https://github.com/KyussCaesar/dubble"
+documentation = "https://docs.rs/dubble/0.1.0/dubble/"
+description = "A generic implementation of double-buffering."
+
+keywords = ["double-buffering", "game", "buffer"]
+
 [dependencies]
+
