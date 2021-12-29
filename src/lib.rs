@@ -84,8 +84,9 @@
 //! In other words, `Deref` behaves as if you had called `my_buf.read()`, and
 //! `DerefMut` behaves as if you had called `my_buf.write()`.
 //!
+#![no_std]
 
-use std::ops::
+use core::ops::
 {
     Deref,
     DerefMut,
